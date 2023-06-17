@@ -6,11 +6,13 @@ import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
 
 const App = () => {
   const [index, setIndex] = useState(0);
-  const { id, name, job, image, text } = people[index];
+  const { name, job, image, text } = people[index];
 
   const nextPerson = () => {
     setIndex((currentIndex) => {
-      const newIndex = (currentIndex + 1) % people.length;
+      // const newIndex = (currentIndex + 1) % people.length;
+      const isLastSlide = currentIndex === people.length - 1;
+      const newIndex = isLastSlide ? 0 : currentIndex + 1;
 
       return newIndex;
     });
@@ -18,7 +20,9 @@ const App = () => {
 
   const prevPerson = () => {
     setIndex((currentIndex) => {
-      const newIndex = (currentIndex - 1 + people.length) % people.length;
+      // const newIndex = (currentIndex - 1 + people.length) % people.length;
+      const isFirstSlide = currentIndex === 0;
+      const newIndex = isFirstSlide ? people.length - 1 : currentIndex - 1;
 
       return newIndex;
     });
