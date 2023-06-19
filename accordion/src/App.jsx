@@ -5,7 +5,7 @@ import data from './data';
 import Questions from './Questions';
 
 const App = () => {
-  const [questions, setQuestions] = useState(data);
+  // const [questions, setQuestions] = useState(data);
   const [activeId, setActiveId] = useState(null);
 
   const toggleQuestion = (id) => {
@@ -17,7 +17,8 @@ const App = () => {
   return (
     <main>
       <Questions
-        questions={questions}
+        // questions={questions}
+        data={data}
         activeId={activeId}
         toggleQuestion={toggleQuestion}
       />

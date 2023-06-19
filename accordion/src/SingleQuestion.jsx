@@ -1,6 +1,5 @@
 /** @format */
 
-import { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 const SingleQuestion = ({ id, title, info, activeId, toggleQuestion }) => {
