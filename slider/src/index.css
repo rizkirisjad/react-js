@@ -265,6 +265,7 @@ ul {
   max-width: 800px;
   position: relative;
   height: 450px;
+  overflow: hidden;
 }
 
 .slide {
