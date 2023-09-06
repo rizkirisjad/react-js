@@ -21,7 +21,7 @@ const CartContainer = () => {
   return (
     <section className="cart">
       <header>
-        <h4>your bag</h4>
+        <h2>your bag</h2>
       </header>
       <div>
         {cartItems.map((item) => {
