@@ -3,13 +3,29 @@ import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
 import NavLinks from './NavLinks';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+const themes = {
+  lemonade: 'lemonade',
+  dracula: 'dracula',
+};
+
+const getThemeFromLocalStorage = () => {
+  return localStorage.getItem('theme') || themes.lemonade;
+};
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(getThemeFromLocalStorage());
   const handleTheme = () => {
-    setTheme(!theme);
+    const { lemonade, dracula } = themes;
+    const newTheme = theme === lemonade ? dracula : lemonade;
+    setTheme(newTheme);
   };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   return (
     <nav className="bg-base-200">
@@ -43,7 +59,7 @@ const Navbar = () => {
         <div className="navbar-end">
           {/* THEME SETUP */}
           <label className="swap swap-rotate">
-            <input type="checkbox" onClick={handleTheme} />
+            <input type="checkbox" onChange={handleTheme} />
             {/* sun icon */}
             <BsSunFill className="swap-on h-4 w-4" />
             {/* moon icon */}
