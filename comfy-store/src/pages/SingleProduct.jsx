@@ -1,6 +1,6 @@
 /** @format */
 import { useLoaderData } from 'react-router-dom';
-import { formatPrice, customFetch } from '../utils';
+import { formatPrice, customFetch, generateAmountOptions } from '../utils';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -82,7 +82,9 @@ const SingleProduct = () => {
               id="amount"
               value={amount}
               onChange={handleAmount}
-            ></select>
+            >
+              {generateAmountOptions(20)}
+            </select>
           </div>
           {/* CART BTN */}
           <div className="mt-10">
