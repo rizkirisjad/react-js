@@ -1,7 +1,6 @@
 /** @format */
 
-import FeaturedProducts from '../components/FeaturedProducts';
-import Hero from '../components/Hero';
+import { FeaturedProducts, Hero } from '../components';
 import { customFetch } from '../utils';
 
 const url = '/products?featured=true';

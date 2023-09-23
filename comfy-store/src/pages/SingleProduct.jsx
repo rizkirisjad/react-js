@@ -11,7 +11,7 @@ export const loader = async ({ params }) => {
 
 const SingleProduct = () => {
   const { product } = useLoaderData();
-  console.log(product);
+
   const { image, title, price, description, colors, company } =
     product.attributes;
   const dollarsAmount = formatPrice(price);
