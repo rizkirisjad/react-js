@@ -21,12 +21,12 @@ const SingleProduct = () => {
   const [amount, setAmount] = useState(1);
 
   const handleAmount = (e) => {
-    setAmount(e.target.value);
+    setAmount(parseInt(e.target.value));
   };
 
   const cartProduct = {
-    cartId: product.id + productColor,
-    productId: product.id,
+    cartID: product.id + productColor,
+    productID: product.id,
     image,
     title,
     price,
