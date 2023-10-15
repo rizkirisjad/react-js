@@ -3,30 +3,15 @@ import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
 import NavLinks from './NavLinks';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-
-const themes = {
-  lemonade: 'lemonade',
-  dracula: 'dracula',
-};
-
-const getThemeFromLocalStorage = () => {
-  return localStorage.getItem('theme') || themes.lemonade;
-};
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../features/user/userSlice';
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(getThemeFromLocalStorage());
-  const handleTheme = () => {
-    const { lemonade, dracula } = themes;
-    const newTheme = theme === lemonade ? dracula : lemonade;
-    setTheme(newTheme);
-  };
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+  const handleTheme = () => {
+    dispatch(toggleTheme());
+  };
 
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
