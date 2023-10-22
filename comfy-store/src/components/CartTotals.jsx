@@ -28,7 +28,7 @@ const CartTotals = () => {
         </p>
         {/* TOTAL */}
         <p className="flex justify-between text-sm mt-4 pb-2">
-          <span>Subtotal</span>
+          <span>Order Total</span>
           <span className="font-medium">{formatPrice(orderTotal)}</span>
         </p>
       </div>
