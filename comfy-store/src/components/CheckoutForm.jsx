@@ -19,6 +19,7 @@ export const action =
       name,
       address,
       chargeTotal: orderTotal,
+      orderTotal: formatPrice(orderTotal),
       cartItems,
       numItemsInCart,
     };
@@ -41,6 +42,9 @@ export const action =
       error?.response?.data?.error?.message ||
         'there was an error placing your order';
       toast.error(errorMassage);
+      if (error.response.status === 401 || 403) {
+        return redirect('/login');
+      }
       return null;
     }
   };
