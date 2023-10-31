@@ -16,7 +16,7 @@ const singleProductQuery = (id) => {
 export const loader =
   (queryClient) =>
   async ({ params }) => {
-    const response = await queryClient.ensureQuerydata(
+    const response = await queryClient.ensureQueryData(
       singleProductQuery(params.id)
     );
     return { product: response.data.data };
