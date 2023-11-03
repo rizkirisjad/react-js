@@ -1,9 +1,11 @@
 /** @format */
 
+import Landing from './pages/Landing';
+
 function App() {
   return (
     <>
-      <h1>Jobster</h1>
+      <Landing />
     </>
   );
 }
