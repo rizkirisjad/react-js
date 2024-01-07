@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import customFetch from '../../utils/axios';
 import { getUserFromLocalStorage } from '../../utils/localStorage';
 import { logoutUser } from '../user/userSlice';
+import { showLoading, hideLoading, getAllJobs } from '../allJobs/allJobsSlice';
 
 const initialState = {
   isLoading: false,
@@ -37,6 +38,16 @@ export const createJob = createAsyncThunk(
       }
       return thunkAPI.rejectWithValue(error.response.data.msg);
     }
+  }
+);
+
+export const deleteJob = createAsyncThunk(
+  'job/deleteJob',
+  async (jobId, thunkAPI) => {
+    thunkAPI.dispatch(showLoading());
+    try {
+      const resp = await customFetch.delete(`/jobs/${jobId}`);
+    } catch (error) {}
   }
 );
 
