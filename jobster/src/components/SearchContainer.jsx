@@ -36,6 +36,14 @@ const SearchContainer = () => {
 
   const optimizedDebounce = useMemo(() => debounce(), []);
 
+  // Another way to solve this is by useEffect
+  // useEffect(() => {
+  //   const debounceId = setTimeout(() => {
+  //     dispatch(handleChange({ name: 'search', value: localSearch }));
+  //   }, 750);
+  //   return () => clearTimeout(debounceId);
+  // }, [localSearch, dispatch]);
+
   return (
     <Wrapper>
       <form className="form">
