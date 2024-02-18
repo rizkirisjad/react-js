@@ -50,6 +50,17 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  const fetchSingleProduct = async (url) => {
+    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
+    try {
+      const response = await axios.get(url);
+      const singleProduct = response.data;
+      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
+    } catch (error) {
+      dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+    }
+  };
+
   useEffect(() => {
     fetchProducts(url);
   }, []);
