@@ -60,9 +60,9 @@ export const FilterProvider = ({ children }) => {
   };
 
   const updateFilters = (e) => {
-    // let name = e.target.name;
-    // let value = e.target.value;
-    const { name, value } = e.target;
+    let name = e.target.name;
+    let value = e.target.value;
+    // const { name, value } = e.target;
     if (name === 'category') {
       value = e.target.textContent;
     }
